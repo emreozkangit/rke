@@ -1,0 +1,478 @@
+emre@emreozkan:~$ rke up
+INFO[0000] Building Kubernetes cluster                  
+INFO[0000] [dialer] Setup tunnel for host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0002] [dialer] Setup tunnel for host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0004] [dialer] Setup tunnel for host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0006] [network] Deploying port listener containers 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Port listener containers deployed successfully 
+INFO[0014] [network] Running etcd <-> etcd port checks  
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0016] [network] Running control plane -> etcd port checks 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Running control plane -> worker port checks 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Running workers -> control plane port checks 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0021] [network] Checking KubeAPI port Control Plane hosts 
+INFO[0021] [network] Removing port listener containers  
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [network] Port listener containers removed successfully 
+INFO[0023] [certificates] Attempting to recover certificates from backup on [etcd,controlPlane] hosts 
+INFO[0024] [certificates] Successfully started [cert-fetcher] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0026] [certificates] Successfully started [cert-fetcher] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0027] [certificates] Successfully started [cert-fetcher] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0027] [certificates] No Certificate backup found on [etcd,controlPlane] hosts 
+INFO[0027] [certificates] Generating CA kubernetes certificates 
+INFO[0028] [certificates] Generating Kubernetes API server certificates 
+INFO[0028] [certificates] Generating Kube Controller certificates 
+INFO[0028] [certificates] Generating Kube Scheduler certificates 
+INFO[0028] [certificates] Generating Kube Proxy certificates 
+INFO[0029] [certificates] Generating Node certificate   
+INFO[0029] [certificates] Generating admin certificates and kubeconfig 
+INFO[0029] [certificates] Generating etcd-ec2-3-17-80-156.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating etcd-ec2-18-224-53-69.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating etcd-ec2-18-221-185-55.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating Kubernetes API server aggregation layer requestheader client CA certificates 
+INFO[0031] [certificates] Generating Kubernetes API server proxy client certificates 
+INFO[0031] [certificates] Temporarily saving certs to [etcd,controlPlane] hosts 
+INFO[0038] [certificates] Saved certs to [etcd,controlPlane] hosts 
+INFO[0038] [reconcile] Reconciling cluster state        
+INFO[0038] [reconcile] This is newly generated cluster  
+INFO[0038] [certificates] Deploying kubernetes certificates to Cluster nodes 
+INFO[0045] Successfully Deployed local admin kubeconfig at [./kube_config_cluster.yml] 
+INFO[0045] [certificates] Successfully deployed kubernetes certificates to Cluster nodes 
+INFO[0045] Pre-pulling kubernetes images                
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0069] Kubernetes images pulled successfully        
+INFO[0069] [etcd] Building up etcd plane..              
+INFO[0070] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Successfully started [etcd] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0073] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0079] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0080] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0081] [etcd] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0082] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0082] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Successfully started [etcd] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0085] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0091] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0092] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0093] [etcd] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0094] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0094] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Successfully started [etcd] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0097] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0104] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0104] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0105] [etcd] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0106] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0106] [etcd] Successfully started etcd plane..     
+INFO[0106] [controlplane] Building up Controller Plane.. 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0123] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0127] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0131] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0131] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0132] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0132] [controlplane] Successfully started Controller Plane.. 
+INFO[0132] [authz] Creating rke-job-deployer ServiceAccount 
+INFO[0132] [authz] rke-job-deployer ServiceAccount created successfully 
+INFO[0132] [authz] Creating system:node ClusterRoleBinding 
+INFO[0133] [authz] system:node ClusterRoleBinding created successfully 
+INFO[0133] [certificates] Save kubernetes certificates as secrets 
+INFO[0133] [certificates] Successfully saved certificates as kubernetes secret [k8s-certs] 
+INFO[0133] [state] Saving cluster state to Kubernetes   
+INFO[0134] [state] Successfully Saved cluster state to Kubernetes ConfigMap: cluster-state 
+INFO[0134] [state] Saving cluster state to cluster nodes 
+INFO[0135] [state] Successfully started [cluster-state-deployer] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0135] [remove/cluster-state-deployer] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0136] [state] Successfully started [cluster-state-deployer] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0137] [remove/cluster-state-deployer] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0138] [state] Successfully started [cluster-state-deployer] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0139] [remove/cluster-state-deployer] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0139] [worker] Building up Worker Plane..          
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0151] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0151] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0155] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0156] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0156] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0156] [worker] Successfully started Worker Plane.. 
+INFO[0156] [sync] Syncing nodes Labels and Taints       
+INFO[0158] [sync] Successfully synced nodes Labels and Taints 
+INFO[0158] [network] Setting up network plugin: canal   
+INFO[0158] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0159] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-network-plugin 
+INFO[0159] [addons] Executing deploy job..              
+INFO[0165] [addons] Setting up KubeDNS                  
+INFO[0165] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0165] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-kubedns-addon 
+INFO[0165] [addons] Executing deploy job..              
+INFO[0171] [addons] KubeDNS deployed successfully..     
+INFO[0171] [addons] Setting up Metrics Server           
+INFO[0171] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0171] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-metrics-addon 
+INFO[0171] [addons] Executing deploy job..              
+INFO[0177] [addons] KubeDNS deployed successfully..     
+INFO[0177] [ingress] Setting up nginx ingress controller 
+INFO[0177] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0178] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-ingress-controller 
+INFO[0178] [addons] Executing deploy job..              
+INFO[0184] [ingress] ingress controller nginx is successfully deployed 
+INFO[0184] [addons] Setting up user addons              
+INFO[0184] [addons] Checking for included user addons   
+INFO[0185] [addons] Adding addon from url https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml 
+INFO[0185] [addons] Adding addon from url https://gist.githubusercontent.com/superseb/499f2caa2637c404af41cfb7e5f4a938/raw/930841ac00653fdff8beca61dab9a20bb8983782/k8s-dashboard-user.yml 
+INFO[0185] [addons] Deploying rke-user-includes-addons  
+INFO[0185] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0186] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-user-includes-addons 
+INFO[0186] [addons] Executing deploy job..              
+INFO[0192] [addons] User addons deployed successfully   
+emre@emreozkan:~$ rke up
+INFO[0000] Building Kubernetes cluster                  
+INFO[0000] [dialer] Setup tunnel for host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0002] [dialer] Setup tunnel for host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0004] [dialer] Setup tunnel for host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0006] [network] Deploying port listener containers 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0007] [network] Pulling image [rancher/rke-tools:v0.1.15] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0011] [network] Successfully pulled image [rancher/rke-tools:v0.1.15] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0012] [network] Successfully started [rke-etcd-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0013] [network] Successfully started [rke-cp-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0014] [network] Port listener containers deployed successfully 
+INFO[0014] [network] Running etcd <-> etcd port checks  
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0015] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0016] [network] Running control plane -> etcd port checks 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0017] [network] Running control plane -> worker port checks 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0019] [network] Running workers -> control plane port checks 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0020] [network] Successfully started [rke-port-checker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0021] [network] Checking KubeAPI port Control Plane hosts 
+INFO[0021] [network] Removing port listener containers  
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0023] [remove/rke-worker-port-listener] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0023] [network] Port listener containers removed successfully 
+INFO[0023] [certificates] Attempting to recover certificates from backup on [etcd,controlPlane] hosts 
+INFO[0024] [certificates] Successfully started [cert-fetcher] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0026] [certificates] Successfully started [cert-fetcher] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0027] [certificates] Successfully started [cert-fetcher] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0027] [certificates] No Certificate backup found on [etcd,controlPlane] hosts 
+INFO[0027] [certificates] Generating CA kubernetes certificates 
+INFO[0028] [certificates] Generating Kubernetes API server certificates 
+INFO[0028] [certificates] Generating Kube Controller certificates 
+INFO[0028] [certificates] Generating Kube Scheduler certificates 
+INFO[0028] [certificates] Generating Kube Proxy certificates 
+INFO[0029] [certificates] Generating Node certificate   
+INFO[0029] [certificates] Generating admin certificates and kubeconfig 
+INFO[0029] [certificates] Generating etcd-ec2-3-17-80-156.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating etcd-ec2-18-224-53-69.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating etcd-ec2-18-221-185-55.us-east-2.compute.amazonaws.com certificate and key 
+INFO[0030] [certificates] Generating Kubernetes API server aggregation layer requestheader client CA certificates 
+INFO[0031] [certificates] Generating Kubernetes API server proxy client certificates 
+INFO[0031] [certificates] Temporarily saving certs to [etcd,controlPlane] hosts 
+INFO[0038] [certificates] Saved certs to [etcd,controlPlane] hosts 
+INFO[0038] [reconcile] Reconciling cluster state        
+INFO[0038] [reconcile] This is newly generated cluster  
+INFO[0038] [certificates] Deploying kubernetes certificates to Cluster nodes 
+INFO[0045] Successfully Deployed local admin kubeconfig at [./kube_config_cluster.yml] 
+INFO[0045] [certificates] Successfully deployed kubernetes certificates to Cluster nodes 
+INFO[0045] Pre-pulling kubernetes images                
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0046] [pre-deploy] Pulling image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0069] [pre-deploy] Successfully pulled image [rancher/hyperkube:v1.11.6-rancher1] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0069] Kubernetes images pulled successfully        
+INFO[0069] [etcd] Building up etcd plane..              
+INFO[0070] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Successfully started [etcd] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0072] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0073] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0079] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0080] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0081] [etcd] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0082] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0082] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Successfully started [etcd] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0084] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0085] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0091] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0092] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0093] [etcd] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0094] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0094] [etcd] Pulling image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Successfully pulled image [rancher/coreos-etcd:v3.2.18] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Successfully started [etcd] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0096] [etcd] Saving snapshot [etcd-rolling-snapshots] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0097] [etcd] Successfully started [etcd-rolling-snapshots] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0104] [certificates] Successfully started [rke-bundle-cert] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0104] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0105] [etcd] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0106] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0106] [etcd] Successfully started etcd plane..     
+INFO[0106] [controlplane] Building up Controller Plane.. 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0107] [controlplane] Successfully started [kube-apiserver] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0107] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0122] [healthcheck] service [kube-apiserver] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0123] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0123] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0124] [controlplane] Successfully started [kube-controller-manager] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0124] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0126] [healthcheck] service [kube-controller-manager] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0127] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0127] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0128] [controlplane] Successfully started [kube-scheduler] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0128] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0130] [healthcheck] service [kube-scheduler] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0131] [controlplane] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0131] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0131] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0132] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0132] [controlplane] Successfully started Controller Plane.. 
+INFO[0132] [authz] Creating rke-job-deployer ServiceAccount 
+INFO[0132] [authz] rke-job-deployer ServiceAccount created successfully 
+INFO[0132] [authz] Creating system:node ClusterRoleBinding 
+INFO[0133] [authz] system:node ClusterRoleBinding created successfully 
+INFO[0133] [certificates] Save kubernetes certificates as secrets 
+INFO[0133] [certificates] Successfully saved certificates as kubernetes secret [k8s-certs] 
+INFO[0133] [state] Saving cluster state to Kubernetes   
+INFO[0134] [state] Successfully Saved cluster state to Kubernetes ConfigMap: cluster-state 
+INFO[0134] [state] Saving cluster state to cluster nodes 
+INFO[0135] [state] Successfully started [cluster-state-deployer] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0135] [remove/cluster-state-deployer] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0136] [state] Successfully started [cluster-state-deployer] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0137] [remove/cluster-state-deployer] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0138] [state] Successfully started [cluster-state-deployer] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0139] [remove/cluster-state-deployer] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0139] [worker] Building up Worker Plane..          
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0140] [remove/service-sidekick] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0141] [worker] Successfully started [kubelet] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0141] [healthcheck] Start Healthcheck on service [kubelet] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0150] [healthcheck] service [kubelet] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0151] [worker] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0151] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0151] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0152] [worker] Successfully started [kube-proxy] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0152] [healthcheck] Start Healthcheck on service [kube-proxy] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0154] [healthcheck] service [kube-proxy] on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] is healthy 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0155] [worker] Successfully started [rke-log-linker] container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0155] [remove/rke-log-linker] Successfully removed container on host [ec2-18-224-53-69.us-east-2.compute.amazonaws.com] 
+INFO[0156] [remove/rke-log-linker] Successfully removed container on host [ec2-18-221-185-55.us-east-2.compute.amazonaws.com] 
+INFO[0156] [remove/rke-log-linker] Successfully removed container on host [ec2-3-17-80-156.us-east-2.compute.amazonaws.com] 
+INFO[0156] [worker] Successfully started Worker Plane.. 
+INFO[0156] [sync] Syncing nodes Labels and Taints       
+INFO[0158] [sync] Successfully synced nodes Labels and Taints 
+INFO[0158] [network] Setting up network plugin: canal   
+INFO[0158] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0159] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-network-plugin 
+INFO[0159] [addons] Executing deploy job..              
+INFO[0165] [addons] Setting up KubeDNS                  
+INFO[0165] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0165] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-kubedns-addon 
+INFO[0165] [addons] Executing deploy job..              
+INFO[0171] [addons] KubeDNS deployed successfully..     
+INFO[0171] [addons] Setting up Metrics Server           
+INFO[0171] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0171] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-metrics-addon 
+INFO[0171] [addons] Executing deploy job..              
+INFO[0177] [addons] KubeDNS deployed successfully..     
+INFO[0177] [ingress] Setting up nginx ingress controller 
+INFO[0177] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0178] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-ingress-controller 
+INFO[0178] [addons] Executing deploy job..              
+INFO[0184] [ingress] ingress controller nginx is successfully deployed 
+INFO[0184] [addons] Setting up user addons              
+INFO[0184] [addons] Checking for included user addons   
+INFO[0185] [addons] Adding addon from url https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml 
+INFO[0185] [addons] Adding addon from url https://gist.githubusercontent.com/superseb/499f2caa2637c404af41cfb7e5f4a938/raw/930841ac00653fdff8beca61dab9a20bb8983782/k8s-dashboard-user.yml 
+INFO[0185] [addons] Deploying rke-user-includes-addons  
+INFO[0185] [addons] Saving addon ConfigMap to Kubernetes 
+INFO[0186] [addons] Successfully Saved addon to Kubernetes ConfigMap: rke-user-includes-addons 
+INFO[0186] [addons] Executing deploy job..              
+INFO[0192] [addons] User addons deployed successfully   
+INFO[0192] Finished building Kubernetes cluster successfully 
+
