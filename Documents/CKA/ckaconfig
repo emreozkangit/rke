@@ -1,0 +1,423 @@
+{
+    cat > ca-config.json << EOF
+    {
+        "signing": {
+            "default": {
+                "expiry": "8760h"
+            },
+            "profiles":{
+                "kubernetes": {
+                    "usages": ["signing","key encipherment", "server auth", "client auth"],
+                    "expiry": "8760h"
+                }
+            }
+        }
+    }
+
+EOF
+
+cat > ca-csr.json << EOF
+{
+    "CN": "Kubernetes",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "Kubernetes",
+            "OU": "CA",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+}
+
+{
+    cat > admin-csr.json << EOF
+{
+    "CN": "admin",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names":[
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "system:masters",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  admin-csr.json | cfssljson -bare admin
+}
+
+WORKER0_HOST=emreozkan2c.mylabserver.com
+WORKER0_IP=172.31.99.111
+WORKER1_HOST=emreozkan3c.mylabserver.com
+WORKER1_IP=172.31.103.216
+
+{
+    cat >  ${WORKER0_HOST}-csr.json << EOF
+{
+    "CN": "system:node:${WORKER0_HOST}",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "system:nodes",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-hostname=${WORKER0_IP},${WORKER0_HOST}\
+-profile=kubernetes \
+${WORKER0_HOST}-csr.json | cfssljson -bare  ${WORKER0_HOST}
+
+cat >  ${WORKER1_HOST}-csr.json << EOF
+{
+    "CN": "system:node:${WORKER1_HOST}",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "system:nodes",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-hostname=${WORKER1_IP},${WORKER1_HOST}\
+-profile=kubernetes \
+${WORKER1_HOST}-csr.json | cfssljson -bare  ${WORKER1_HOST}
+}
+
+{
+   cat > kube-controller-manager-csr.json << EOF
+{
+    "CN": "system:kube-controller-manager",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+    {
+        "C": "US",
+        "L": "Portland",
+        "O": "system:kube-controller-manager",
+        "OU": "Kubernetes The Hard Way",
+        "ST": "Oregon"
+    }   
+]
+}
+EOF
+
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-config=ca-config.json \
+-profile=kubernetes \
+kube-controller-manager-csr.json  | cfssljson -bare kube-controller-manager
+}
+
+
+{
+cat > kube-proxy-csr.json << EOF
+{
+    "CN": "system:kube-proxy",
+    "key": 
+        {
+            "algo": "rsa",
+            "size": 2048
+        },
+    "names": [
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "system:kube-proxier",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-config=ca-config.json \
+-profile=kubernetes \
+kube-proxy-csr.json  | cfssljson -bare kube-proxy
+}
+
+{
+cat > kube-scheduler-csr.json << EOF
+{
+    "CN": "system:kube-scheduler",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "system:kube-scheduler",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-config=ca-config.json \
+-profile=kubernetes \
+kube-scheduler-csr.json | cfssljson -bare kube-scheduler
+}
+
+
+####Kube API
+CERT_HOSTNAME=10.32.0.1,emreozkan1c.mylabserver.com,172.31.98.250,127.0.0.1,localhost,kubernetes.default
+
+{
+cat > kubernetes-csr.json << EOF
+{
+    "CN": "kubernetes",
+    "key":{
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+        "C": "US",
+        "L": "Portland",
+        "O": "Kubernetes",
+        "OU": "Kubernetes The Hard Way",
+        "ST": "Oregon"
+        }
+    ]
+}
+EOF
+
+cfssl gencert  \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-config=ca-config.json \
+-hostname=${CERT_HOSTNAME} \
+-profile=kubernetes \
+kubernetes-csr.json | cfssljson -bare kubernetes
+}
+
+
+{
+cat > service-account-csr.json << EOF
+{
+    "CN": "service-account",
+    "keys": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names":[
+        {
+            "C": "US",
+            "L": "Portland",
+            "O": "Kubernetes",
+            "OU": "Kubernetes The Hard Way",
+            "ST": "Oregon"
+        }
+    ]
+}
+EOF
+cfssl gencert \
+-ca=ca.pem \
+-ca-key=ca-key.pem \
+-config=ca-config.json \
+-profile=kubernetes \
+service-account-csr.json | cfssljson -bare service-account
+}
+
+WORKER0_HOST=emreozkan2c.mylabserver.com
+WORKER0_IP=172.31.99.111
+WORKER1_HOST=emreozkan3c.mylabserver.com
+WORKER1_IP=172.31.103.216
+
+scp ca.pem emreozkan2c.mylabserver.com-key.pem emreozkan2c.mylabserver.com.pem root@emreozkan2c.mylabserver.com:~/
+scp ca.pem emreozkan3c.mylabserver.com-key.pem emreozkan3c.mylabserver.com.pem root@emreozkan3c.mylabserver.com:~/
+
+scp emreozkan2c.mylabserver.com.kubeconfig kube-proxy.kubeconfig emreozkan2c.mylabserver.com:~/
+scp emreozkan3c.mylabserver.com.kubeconfig kube-proxy.kubeconfig emreozkan3c.mylabserver.com:~/
+
+
+for instance in emreozkan2c.mylabserver.com emreozkan3c.mylabserver.com; 
+do
+kubectl config set-cluster kubernetes-hard-way \
+  --certificate-authority=ca.pem \
+  --embed-certs=true \
+  --server=https://emreozkan1c.mylabserver.com:6443 \
+  --kubeconfig=${instance}.kubeconfig
+
+kubectl config set-credentials system:node:${instance} \
+  --client-certificate=${instance}.pem \
+  --client-key=${instance}-key.pem \
+  --embed-certs=true \
+  --kubeconfig=${instance}.kubeconfig 
+
+kubectl config set-context default \
+  --cluster=kubernetes-hard-way \
+  --user=system:node:${instance} \
+  --kubeconfig=${instance}.kubeconfig
+
+kubectl config use-context default --kubeconfig=${instance}.kubeconfig
+
+done
+
+{
+    kubectl config set-cluster kubernetes-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://emreozkan1c.mylabserver.com:6443 \
+    --kubeconfig=kube-proxy.kubeconfig
+
+    kubectl config set-credentials system:kube-proxy \
+    --client-certificate=kube-proxy.pem \
+    --client-key=kube-proxy-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-proxy.kubeconfig
+
+    kubectl config set-context default \
+    --cluster=kubernetes-hard-way \
+    --user=system:kube-proxy \
+    --kubeconfig=kube-proxy.kubeconfig
+
+    kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
+}
+
+{
+    kubectl config set-cluster kubernetes-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://emreozkan1c.mylabserver.com:6443 \
+    --kubeconfig=kube-controller-manager.kubeconfig
+
+    kubectl config set-credentials system:kube-controller-manager \
+    --client-certificate=kube-controller-manager.pem \
+    --client-key=kube-controller-manager-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-controller-manager.kubeconfig
+
+    kubectl config set-context default \
+    --cluster=kubernetes-hard-way \
+    --user=kube-controller-manager \
+    --kubeconfig=kube-controller-manager.kubeconfig 
+
+    kubectl config use-context default --kubeconfig=kube-controller-manager.kubeconfig
+}
+
+{
+    kubectl config set-cluster kubernetes-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://emreozkan1c.mylabserver.com:6443 \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+    kubectl config set-credentials system:kube-scheduler \
+    --client-certificate=kube-scheduler.pem \
+    --client-key=kube-scheduler-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+    kubectl config set-context default \
+    --cluster=kubernetes-hard-way \
+    --user=kube-scheduler \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+    kubectl config use-context default --kubeconfig=kube-scheduler.kubeconfig
+}
+
+{
+    kubectl config set-cluster kubernetes-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=emreozkan1c.mylabserver.com:6443 \
+    --kubeconfig=admin.kubeconfig
+
+    kubectl config set-credentials system:admin \
+    --client-certificate=admin.pem \
+    --client-key=admin-key.pem \
+    --embed-certs=true \
+    --kubeconfig=admin.kubeconfig
+
+    kubectl config set-context default \
+    --cluster=kubernetes-hard-way \
+    --user=admin \
+    --kubeconfig=admin.kubeconfig
+
+    kubectl config use-context default --kubeconfig=admin.kubeconfig
+}
+
+
+cat << EOF | sudo tee /etc/systemd/system/etcd.service
+[Unit]
+Description=etcd
+Documentation=https://github.com/coreos
+
+[Service]
+ExecStart=/usr/local/bin/etcd \\
+  --name ${ETCD_NAME} \\
+  --cert-file=/etc/etcd/kubernetes.pem \\
+  --key-file=/etc/etcd/kubernetes-key.pem \\
+  --peer-cert-file=/etc/etcd/kubernetes.pem \\
+  --peer-key-file=/etc/etcd/kubernetes-key.pem \\
+  --trusted-ca-file=/etc/etcd/ca.pem \\
+  --peer-trusted-ca-file=/etc/etcd/ca.pem \\
+  --peer-client-cert-auth \\
+  --client-cert-auth \\
+  --initial-advertise-peer-urls https://${INTERNAL_IP}:2380 \\
+  --listen-peer-urls https://${INTERNAL_IP}:2380 \\
+  --listen-client-urls https://${INTERNAL_IP}:2379,https://127.0.0.1:2379 \\
+  --advertise-client-urls https://${INTERNAL_IP}:2379 \\
+  --initial-cluster-token etcd-cluster-0 \\
+  --initial-cluster ${INITIAL_CLUSTER} \\
+  --initial-cluster-state new \\
+  --data-dir=/var/lib/etcd
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF 
+
